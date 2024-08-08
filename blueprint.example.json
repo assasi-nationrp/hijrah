@@ -1,0 +1,55 @@
+[
+  {
+    "databaseName": "name_of_database",
+    "action": "create",
+    "column": [
+      {
+        "fieldName": "name_of_field",
+        "action": "add",
+        "dataType": "char",
+        "constraint": "UNIQUE",
+        "size": 50,
+        "reference": "name_other_database",
+        "foreignKey": "column_key_name",
+        "default": null
+      }
+    ]
+  },
+  {
+    "databaseName": "name_of_database",
+    "action": "addIndex",
+    "indexName": "NAME_OF_INDEX",
+    "isUnique": false,
+    "indexOption": null
+  },
+  {
+    "databaseName": "name_of_database",
+    "action": "dropIndex",
+    "indexName": "NAME_OF_INDEX"
+  },
+  {
+    "databaseName": "name_of_database",
+    "action": "drop"
+  },
+  {
+    "databaseName": "name_of_database",
+    "action": "alter",
+    "column": [
+      {
+        "fieldName": "name_of_field",
+        "action": "drop"
+      },
+      {
+        "fieldName": "name_of_field",
+        "action": "add"
+      },
+      {
+        "fieldName": "name_of_field",
+        "action": "modify",
+        "newFieldName": null,
+        "newDataType": "string"
+      }
+    ]
+  }
+
+]
