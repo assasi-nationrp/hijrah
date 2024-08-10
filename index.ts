@@ -3,6 +3,7 @@
 import {version} from './package.json';
 import {Command} from 'commander';
 import projectInitializer from "./utils/initializer.ts";
+import createNewMigration from "./utils/createNewMigration.ts";
 
 
 const program = new Command();
@@ -18,6 +19,12 @@ program
     .argument('<path>', 'Path to initialize hijrah workdir directory')
     .description('Initialize a new hijrah workdir')
     .action(projectInitializer);
+
+program
+    .command('create')
+    .argument('<name>', 'Name of the migration')
+    .description('Create a new migration')
+    .action(createNewMigration);
 
 
 program.parse();

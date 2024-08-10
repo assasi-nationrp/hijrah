@@ -64,6 +64,7 @@ export interface Column {
     readonly foreignKey?:   string;
     readonly default?:      null;
     readonly newFieldName?: null;
+    readonly oldFiledName?: string;
     readonly newDataType?:  string;
     readonly isPrimaryKey: boolean;
 }
