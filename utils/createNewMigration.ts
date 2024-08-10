@@ -1,17 +1,27 @@
 import {v7 as uuidv7} from 'uuid'
 import cliSelect from "cli-select";
+import {DatabaseActionEnum} from "../types/general";
+
+
 
 const interactiveMigrationCreation = () => {
-    cliSelect({
-        values: ['CREATE_TABLE', 'ADD_COLUMN', 'DROP_COLUMN', 'DROP_TABLE'],
-        defaultValue: 0,
-        selected: '[x]',
-        unselected: '[ ]',
-        valueRenderer: (value, selected) => {
-            return selected ? value : value;
-        },
-    })
-        .then(res => res)
+    let continuePrompt = true
+    const migrationData = []
+    while (continuePrompt) {
+        const migrationStep = {}
+        migrationStep['tableName'] = prompt('Enter table name: ')
+        console.log('Which action you want to use ?: ');
+        migrationStep['action'] = cliSelect({
+            values: [DatabaseActionEnum.CREATE, DatabaseActionEnum.DROP_TABLE, DatabaseActionEnum.ADD_INDEX, DatabaseActionEnum.DROP_INDEX],
+            defaultValue: 0,
+            selected: '[x]',
+            unselected: '[ ]',
+            valueRenderer: (value, selected) => {
+                return selected ? value : value;
+            },
+        })
+            .then(res => res.value)
+    }
 
 }
 
