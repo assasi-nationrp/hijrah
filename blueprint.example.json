@@ -1,7 +1,7 @@
 [
   {
     "databaseName": "name_of_database",
-    "action": "create",
+    "action": "CREATE_TABLE",
     "column": [
       {
         "fieldName": "name_of_field",

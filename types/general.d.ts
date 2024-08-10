@@ -46,7 +46,7 @@ export enum MySQLDatabaseDataType {
     YEAR = 'YEAR'
 }
 export interface MigrationBlueprint {
-    readonly databaseName: string;
+    readonly tableName: string;
     readonly action:       DatabaseActionEnum;
     readonly column?:      Column[];
     readonly indexName?:   string;
@@ -65,4 +65,5 @@ export interface Column {
     readonly default?:      null;
     readonly newFieldName?: null;
     readonly newDataType?:  string;
+    readonly isPrimaryKey: boolean;
 }

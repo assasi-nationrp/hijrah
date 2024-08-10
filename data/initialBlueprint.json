@@ -1,0 +1,36 @@
+[
+  {
+    "tableName": "hijrah",
+    "action": "create",
+    "column": [
+      {
+        "fieldName": "indentifier",
+        "action": "ADD_COLUMN",
+        "dataType": "CHAR",
+        "constraint": "UNIQUE",
+        "size": 36,
+        "isPrimaryKey": true
+      },
+      {
+        "fieldName": "file_name",
+        "action": "ADD_COLUMN",
+        "dataType": "TEXT",
+        "constraint": "UNIQUE"
+      },
+      {
+        "fieldName": "created_at",
+        "action": "ADD_COLUMN",
+        "dataType": "TIMESTAMP",
+        "constraint": "NOT NULL",
+        "default": "CURRENT_TIMESTAMP"
+      },
+      {
+        "fieldName": "updated_at",
+        "action": "ADD_COLUMN",
+        "dataType": "TIMESTAMP",
+        "constraint": "NOT NULL",
+        "default": "CURRENT_TIMESTAMP"
+      }
+    ]
+  }
+]
