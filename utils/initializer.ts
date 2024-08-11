@@ -2,7 +2,7 @@ import ora from "ora";
 import { mkdir } from "node:fs/promises";
 import Bun from "bun"; // Ensure Bun module is imported
 import {v7 as uuidv7 }  from "uuid";
-import data from "../data/initialBlueprint.json" with {type: 'json'};
+import data from "../data/initialBlueprint.json";
 
 const createConfig = () => {
     const dbName = prompt('Enter database name: ');

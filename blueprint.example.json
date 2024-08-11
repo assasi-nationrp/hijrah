@@ -1,6 +1,6 @@
 [
   {
-    "databaseName": "name_of_database",
+    "tableName": "name_of_database",
     "action": "CREATE_TABLE",
     "column": [
       {
@@ -16,23 +16,23 @@
     ]
   },
   {
-    "databaseName": "name_of_database",
+    "tableName": "name_of_database",
     "action": "addIndex",
     "indexName": "NAME_OF_INDEX",
     "isUnique": false,
     "indexOption": null
   },
   {
-    "databaseName": "name_of_database",
+    "tableName": "name_of_database",
     "action": "dropIndex",
     "indexName": "NAME_OF_INDEX"
   },
   {
-    "databaseName": "name_of_database",
+    "tableName": "name_of_database",
     "action": "drop"
   },
   {
-    "databaseName": "name_of_database",
+    "tableName": "name_of_database",
     "action": "alter",
     "column": [
       {
