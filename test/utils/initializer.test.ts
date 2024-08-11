@@ -4,68 +4,10 @@ import {file} from 'bun'
 import { existsSync, statSync, readdirSync, readFileSync, rmSync } from 'fs';
 import { join } from 'path';
 import data from "../../data/initialBlueprint.json";
-const fileExists = async (filePath: string): Promise<boolean> => {
-    try {
-       return existsSync(filePath)
-    } catch (error) {
-        if (error.code === 'ENOENT') {
-            return false;
-        }
-        throw error;
-    }
-};
+import {countFilesInDirectory, directoryExists, fileExists, readJsonFileText} from "../utils.ts";
 
-const directoryExists = (dirPath: string): boolean => {
-    try {
-        const stats = statSync(dirPath);
-       return stats.isDirectory()
-    } catch (error) {
-        if (error.code === 'ENOENT') {
-            return false;
-        }
-        throw error;
-    }
-};
 
-const readJsonFile = async (filePath: string): Promise<any> => {
-    try {
-        const fileContent = await file(filePath).text();
-        return JSON.parse(fileContent);
-    } catch (error) {
-        console.error(`Error reading JSON file: ${error.message}`);
-        throw error;
-    }
-};
 
-const countFilesInDirectory = (dirPath: string) => {
-    try {
-        const elements = readdirSync(dirPath);
-        return elements.length
-    } catch (error) {
-        console.error('Error reading directory:', error);
-    }
-}
-
-const readJsonFileText = (dirPath: string) => {
-    try {
-        const elements = readdirSync(dirPath);
-
-        if (elements.length > 0) {
-            const firstItem = elements[0];
-            const firstItemPath = join(dirPath, firstItem);
-
-            const jsonString = readFileSync(firstItemPath, 'utf8');
-            console.log('JSON string from the first item:', jsonString);
-
-            // If you want to parse the JSON string into an object:
-            return JSON.parse(jsonString);
-        } else {
-            console.log('The directory is empty.');
-        }
-    } catch (error) {
-        console.error('Error:', error);
-    }
-}
 
 describe('projectInitializer', () => {
     afterEach(() => {
